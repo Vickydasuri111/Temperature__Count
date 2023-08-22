@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-container{
+            padding: 50px 100px;
+            background: #000;
+            color:#fff;
+            border: 3px solid rgb(30, 7, 231);
+            border-radius: 3px;
+        }
+        h1{
+            text-align: center;
+        }
+        #container{
+            text-align: center;
+            background: rgb(7, 245, 166);
+            padding: 50px;
+        }
+        .input-div{
+            display: inline-block;
+        }
+        .inp{
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: 30px;
+            font-weight: bold;
+            width: 250px;
+            text-align: center;
+        }
+        label{
+            font-size: 32px;
+            color: rgb(14, 18, 20);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+    <h1>Temperature Convertor</h1>
+    <div id="container">
+        <div class="input-div">
+            <label >Celsius</label><br>
+            <input type="number" name="number" value="0" class="inp" id="cel">
+        </div>
+        <div class="input-div">
+            <label >Fahrenheit</label><br>
+            <input type="number" name="number" value="32" class="inp" id="fah">
+        </div>
+    </div>
+</div>
+    <script>
+        var elm1=document.getElementById('cel');
+        var elm2=document.getElementById('fah');
+
+
+     elm1.addEventListener('input',function(){
+           let c=this.value;
+           let f=(c*9/5)+32;
+           if(!Number.isInteger(f)){
+            f=f.toFixed(4);
+           }
+           elm2.value=f;
+     })
+     elm2.addEventListener('input',function(){
+         let f=this.value;
+         let c=(f-32)*5/9;
+         if(!Number.isInteger(c)){
+            c=c.toFixed(4);
+           }
+         elm1.value=c;
+     })
+    </script>
+</body>
+</html>
